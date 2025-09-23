@@ -24,8 +24,14 @@ Check that if a custom font is variable enabled (refer to font a preferred), rem
 - Non-WOFF2 or WOFF font formats.
 - Non-variable custom fonts exist (variable fonts are more data efficient).
 ## 6) Pass / Fail rules (explicit)
-- PASS if: [boolean condition]
-- FAIL if: [boolean condition]
+- PASS if: number of fonts =< 5
+- FAIL if: number of fonts > 5
+  
+- PASS if: font format is WOFF2 OR WOFF
+- FAIL if: font is not WOFF2 OR WOFF
+  
+- PASS if: custom font is variable
+- FAIL if: custom font is NOT variable
 ## 7) Exact test steps (reproducible)
 1. Command (e.g. `curl -I https://... > evidence/cache-headers.txt`)
 2. Optional (if you use Lighthouse): `npx lighthouse 'URL' --output=json --output-path=
