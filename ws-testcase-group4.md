@@ -9,8 +9,14 @@ Limit the amount of fonts used on the page, optimize/subset and use the most per
 - Performance:
 - CO₂ / Energy:
 - UX / Accessibility:
-## 4) Machine-testable? (yes / no / partly)
-Specify which parts can be automated and which need manual judgement.
+## 4) Machine-testable? (yes)
+**Automatable:**
+Check that system fonts are replaced with accessible emojis.
+Check that emojis are implemented with compatibility in mind. Check that the number of custom typefaces does not exceed five.
+Check that fonts are preloaded within the head of the HTML document.
+Check that no obsolete font formats are listed (such as EOT, TTF, SVG).
+Check that fonts are only provided using WOFF2 or WOFF as a fallback.
+Check that if a custom font is variable enabled (refer to font a preferred), remove other references (bold, italic, etc).
 ## 5) Signals to check (explicit list)
 - e.g. `transferSize` > 300000 for hero images
 - `Cache-Control` header missing / short TTL
