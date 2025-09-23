@@ -1,6 +1,6 @@
 # STAR Test-case: 2.18 Use optimized and appropriate web typography
-Group: Student A, Student B
-Date: YYYY-MM-DD
+Group 4: Sander Vinkler Bach, Jakub Olszewski
+Date: 23.09.2025
 ## 1) WSG criterion (exact quote)
 > ...
 ## 2) Plain-language summary
