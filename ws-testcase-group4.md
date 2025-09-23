@@ -4,7 +4,7 @@ Date: 23.09.2025
 ## 1) WSG criterion (exact quote)
 > Provide custom fonts in a highly optimized and correct format, but with a preference for pre-installed typefaces where possible.
 ## 2) Plain-language summary
-1–2 sentences: what the guideline requires.
+Limit the amount of fonts used on the page, optimize/subset and use the most performant file format available. Use pre-installed fonts wherever possible
 ## 3) Why it matters
 - Performance:
 - CO₂ / Energy:
