@@ -1,4 +1,4 @@
-# STAR Test-case: [WSG ID] — Short title
+# STAR Test-case: 2.18 Use optimized and appropriate web typography
 Group: Student A, Student B
 Date: YYYY-MM-DD
 ## 1) WSG criterion (exact quote)
