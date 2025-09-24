@@ -1,0 +1,42 @@
+@font-face {
+    font-family: lato-bold;
+    src: url(/fonts/fixed/Lato-Bold.woff2);
+}
+@font-face {
+    font-family: karla-medium;
+    src: url(/fonts/fixed/Karla-Medium.woff2);
+}
+
+h1, h2{
+    font-family: lato-bold, sans-serif;
+    font-size: 2vw;
+}
+
+p {
+    font-family: karla-medium, sans-serif;
+    font-size: 1vw;
+}
+
+body {
+    text-align: center;
+    margin: 0;
+}
+
+section {
+    padding: 2rem;
+    width: 65vw;
+    margin: 1rem auto;
+    border-radius: .5rem;
+}
+
+section:nth-child(2) {
+    background-color: salmon;
+}
+
+section:nth-child(3) {
+    background-color: lightblue;
+}
+
+section:nth-child(4) {
+    background-color: lightgreen;
+}
