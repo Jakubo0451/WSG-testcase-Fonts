@@ -35,7 +35,7 @@ FAIL if > 5 custom fonts are used, or fonts are only in legacy formats, or no pr
 - `cd demo`
 - `npx http-server . -p 8000`
 - Broken: http://127.0.0.1:8000/demo/broken/index.html
-- Fixed:  http://127.0.0.1:8000/fixed/broken/index.html
+- Fixed:  http://127.0.0.1:8000/demo/fixed/index.html
 
 **2. Inspect font requests with Lighthouse**
 - For broken: `npx lighthouse "http://127.0.0.1:8000/demo/broken/index.html" --output=json --output-path="evidence/lhr-broken-1.json" --save-assets --chrome-flags="--headless"`
