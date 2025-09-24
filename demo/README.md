@@ -8,3 +8,5 @@ Ok to proceed? (y) y
 
 **The page is now served at:**
 http://127.0.0.1:8000/demo/
+
+**To kill the server click Ctrl+C in the terminal**
