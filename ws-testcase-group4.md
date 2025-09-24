@@ -27,7 +27,7 @@ Assess whether line-height, contrast, and fallbacks provide good readability.
 - Missing font-display in @font-face.
 ## 6) Pass / Fail rules (explicit)
 PASS if ≤ 5 custom fonts are used, all served in WOFF2 (with optional WOFF fallback), and critical fonts are preloaded with font-display set.
-FAIL if > 5 custom fonts are used, or fonts are only in legacy formats, or no preload/font-display is set for above-the-fold fonts.
+FAIL if > 5 custom fonts are used, or fonts are only in legacy formats, or no preload/font-display is set in the previously mentioned formats.
 ## 7) Exact test steps (reproducible)
 1. Serve the broken and fixed demos locally
 - cd demo
