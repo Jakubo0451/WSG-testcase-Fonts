@@ -8,22 +8,132 @@
 <body>
     <h1>Broken WSG 2.18 Font Optimization</h1>
     <section>
-        <h2>Environment</h2>
-        <p>
-            Reducing the number and complexity of custom fonts used reduces data transfer and rendering effort, which lowers associated emissions.
+        <h2 class="hf-1">Environment</h2>
+        <p class="pf-1">
+            Minimizing both the quantity and complexity of custom fonts implemented on a website significantly decreases the amount of data that needs to be transferred to the user's device and reduces the computational effort required for rendering, which in turn contributes to lower energy consumption and helps reduce the associated carbon emissions during page loads.
         </p>
     </section>
     <section>
-        <h2>Performance</h2>
-        <p>
-            Using optimized web fonts or system fonts supports a smoother user experience and faster rendering.
+        <h2 class="hf-2">Performance</h2>
+        <p class="pf-2">
+            Choosing to use well-optimized web fonts or default system fonts plays a key role in enhancing overall website performance by enabling faster text rendering and contributing to a more seamless and responsive user experience, especially on devices with limited processing power or slower internet connections.
         </p>
     </section>
     <section>
-        <h2>Social equity</h2>
-        <p>
-            System fonts are preinstalled and are reliable, ensuring content can always be presented fast in a font users are familiar with.
+        <h2 class="hf-3">Social equity</h2>
+        <p class="pf-3">
+            System fonts, which come preinstalled on most operating systems and devices, are a highly reliable choice for web design because they eliminate the need for additional downloads and ensure that content is displayed quickly and consistently in a typeface that users are already accustomed to, improving both performance and readability.
         </p>
     </section>
+    <style>
+        @font-face {
+            font-family: AmaticSC_Bold;
+            src: url(/fonts/AmaticSC-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: AmaticSC_Regular;
+            src: url(/fonts/AmaticSC-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Asimovian_Regular;
+            src: url(/fonts/Asimovian-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: IndieFlower_Regular;
+            src: url(/fonts/IndieFlower-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Play_Regular;
+            src: url(/fonts/Play-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: Play_Bold;
+            src: url(/fonts/Play-Bold.ttf);
+        }
+
+        @font-face {
+            font-family: ShadowsIntoLight_Regular;
+            src: url(/fonts/ShadowsIntoLight-Regular.ttf);
+        }
+
+        @font-face {
+            font-family: skud;
+            src: url(/fonts/skud-webfont.svg) format("svg");
+        }
+
+        @font-face {
+            font-family: statik;
+            src: url(/fonts/wg_statik.eot) format("eot");
+        }
+
+        .hf-1 {
+            font-family: AmaticSC_Bold;
+        }
+
+        .pf-1 {
+            font-family: AmaticSC_Regular;
+        }
+
+        .hf-2 {
+            font-family: Asimovian_Regular;
+        }
+
+        .pf-2 {
+            font-family: IndieFlower_Regular;
+        }
+
+        .hf-3 {
+            font-family: Play_Regular;
+        }
+
+        .pf-3 {
+            font-family: Play_Bold;
+        }
+
+        h1 {
+            font-family: ShadowsIntoLight_Regular;
+            color: gainsboro;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+
+        body {
+            text-align: center;
+            margin: 0;
+        }
+
+        section {
+            padding: 2rem;
+            width: 65vw;
+            margin: 1rem auto;
+            border-radius: .5rem;
+        }
+
+        section:nth-child(2) {
+            background-color: salmon;
+            color: red;
+        }
+
+        section:nth-child(3) {
+            background-color: lightblue;
+            color: aqua;
+        }
+
+        section:nth-child(4) {
+            background-color: lightgreen;
+            color: lime;
+        }
+    </style>
 </body>
 </html>
