@@ -50,6 +50,11 @@ node ./tools/extract-fonts.js evidence/audit-broken.json > evidence/fonts-broken
 ## 8) Evidence required (list filenames)
 - e.g. `evidence/lhr-broken.json`, `evidence/images-broken.csv`, `evidence/before.png`,
 ## 9) Automation hints (optional)   
-- small snippet / instructions (if you automated checks)
+- Use Puppeteer/Node to grab all font resources
+- Output transferSize, format, and whether preload headers are present
 ## 10) Assumptions & notes
-- emission model used (if applicable), throttling assumptions, tool versions, number of
+- Emissions model: SWDM v4 defaults.
+- Cold cache runs only (to avoid 0-byte transfer sizes).
+- Viewport: 375×812 mobile to define “above the fold.”
+- Thresholds: max 5 custom fonts on initial load.
+- Tools: Lighthouse v10+, Node.js ≥ 16, Puppeteer ≥ 19.
