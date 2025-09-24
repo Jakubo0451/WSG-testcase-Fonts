@@ -14,8 +14,9 @@ Limit the amount of fonts used on the page, optimize/subset and use the most per
 **Automatable:**
 Count how many custom fonts are requested.
 Detect which formats are served (WOFF2, WOFF, vs obsolete formats like TTF/EOT/SVG).
-Check for <link rel="preload"> for critical fonts.
-Inspect @font-face rules for font-display.
+Check for `<link rel="preload">` for critical fonts.
+Inspect `@font-face` rules for `font-display`.
+
 **Manual:**
 Judge whether the number of fonts is “appropriate” for the design.
 Assess whether line-height, contrast, and fallbacks provide good readability.
@@ -25,26 +26,31 @@ Assess whether line-height, contrast, and fallbacks provide good readability.
 - Obsolete font formats (eg. EOT, TTF, SVG).
 - Non-WOFF2 or WOFF font formats.
 - Non-variable custom fonts exist (variable fonts are more data efficient).
-- Missing font-display in @font-face.
+- Missing `font-display` in `@font-face`.
 ## 6) Pass / Fail rules (explicit)
-PASS if ≤ 5 custom fonts are used, all served in WOFF2 (with optional WOFF fallback), and critical fonts are preloaded with font-display set.
+PASS if ≤ 5 custom fonts are used, all served in WOFF2 (with optional WOFF fallback), and critical fonts are preloaded with `font-display` set.
 FAIL if > 5 custom fonts are used, or fonts are only in legacy formats, or no preload/font-display is set in the previously mentioned formats.
 ## 7) Exact test steps (reproducible)
-1. Serve the broken and fixed demos locally
-- cd demo
-- npx http-server . -p 8000
-- # Broken: http://127.0.0.1:8000/demo/broken/index.html
-- # Fixed:  http://127.0.0.1:8000/fixed/broken/index.html
-2. Inspect font requests with Lighthouse
-- npx lighthouse "http://127.0.0.1:8000/demo/broken/index.html" --output=json --output-path="evidence/lhr-broken-1.json" --save-assets --chrome-flags="--headless"
-- npx lighthouse "http://127.0.0.1:8000/demo/fixed/index.html" --output=json --output-path="evidence/lhr-fixed-1.json" --save-assets --chrome-flags="--headless"
-3. Extract font rows using helper script
-[!WARNING]
+**1. Serve the broken and fixed demos locally**
+- `cd demo`
+- `npx http-server . -p 8000`
+- Broken: http://127.0.0.1:8000/demo/broken/index.html
+- Fixed:  http://127.0.0.1:8000/fixed/broken/index.html
+
+**2. Inspect font requests with Lighthouse**
+- For broken: `npx lighthouse "http://127.0.0.1:8000/demo/broken/index.html" --output=json --output-path="evidence/lhr-broken-1.json" --save-assets --chrome-flags="--headless"`
+- For fixed: `npx lighthouse "http://127.0.0.1:8000/demo/fixed/index.html" --output=json --output-path="evidence/lhr-fixed-1.json" --save-assets --chrome-flags="--headless"`
+
+**3. Extract font rows using helper script**
+> [!WARNING]
 The script tools/extract-fonts.js in the example below is illustrative. Treat it as present for the test procedure: the script would parse the Lighthouse JSON and produce a CSV listing every font resource, declared @font-face info, font-display presence, whether the font was preloaded, whether it’s used above-the-fold, and the transferSize bytes from Lighthouse. The test expects the CSV output files listed in the Evidence section.
 Example command (produce CSV):
 node ./tools/extract-fonts.js evidence/audit-broken.json > evidence/fonts-broken.csv
-4. Inspect CSS manually to check @font-face blocks for font-display and formats.
-5. Take screenshots of broken and fixed pages:
+
+**4. Inspect CSS manually**
+- Check `@font-face` blocks for `font-display` and `format`.
+
+**5. Take screenshots of broken and fixed pages:**
 - evidence/before.png
 - evidence/after.png
 ## 8) Evidence required (list filenames)
