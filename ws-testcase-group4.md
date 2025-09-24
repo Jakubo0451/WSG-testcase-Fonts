@@ -9,34 +9,43 @@ Limit the amount of fonts used on the page, optimize/subset and use the most per
 - Performance: Faster font loading and less render blocking.
 - CO₂ / Energy: Smaller font files reduce data transfer and emissions.
 - UX / Accessibility: Clear, consistent text improves readability.
-## 4) Machine-testable? (yes)
+## 4) Machine-testable? (partly)
 **Automatable:**
-Check that system fonts are replaced with accessible emojis.
-Check that emojis are implemented with compatibility in mind. Check that the number of custom typefaces does not exceed five.
-Check that fonts are preloaded within the head of the HTML document.
-Check that no obsolete font formats are listed (such as EOT, TTF, SVG).
-Check that fonts are only provided using WOFF2 or WOFF as a fallback.
-Check that if a custom font is variable enabled (refer to font a preferred), remove other references (bold, italic, etc).
+Count how many custom fonts are requested.
+Detect which formats are served (WOFF2, WOFF, vs obsolete formats like TTF/EOT/SVG).
+Check for <link rel="preload"> for critical fonts.
+Inspect @font-face rules for font-display.
+**Manual:**
+Judge whether the number of fonts is “appropriate” for the design.
+Assess whether line-height, contrast, and fallbacks provide good readability.
 ## 5) Signals to check (explicit list)
-- Number of custom fonts > 5.
+- Number of distinct custom font files requested
 - Missing preloaded fonts in the HTML head.
 - Obsolete font formats (eg. EOT, TTF, SVG).
 - Non-WOFF2 or WOFF font formats.
 - Non-variable custom fonts exist (variable fonts are more data efficient).
+- Missing font-display in @font-face.
 ## 6) Pass / Fail rules (explicit)
-- PASS if: number of fonts =< 5
-- FAIL if: number of fonts > 5
-  
-- PASS if: font format is WOFF2 OR WOFF
-- FAIL if: font is not WOFF2 OR WOFF
-  
-- PASS if: custom font is variable
-- FAIL if: custom font is NOT variable
+PASS if ≤ 5 custom fonts are used, all served in WOFF2 (with optional WOFF fallback), and critical fonts are preloaded with font-display set.
+FAIL if > 5 custom fonts are used, or fonts are only in legacy formats, or no preload/font-display is set for above-the-fold fonts.
 ## 7) Exact test steps (reproducible)
-1. Command (e.g. `curl -I https://... > evidence/cache-headers.txt`)
-2. Optional (if you use Lighthouse): `npx lighthouse 'URL' --output=json --output-path=
-3. Script (if any): `node tools/check-foo.js URL > evidence/foo.csv`
-4. Manual: take screenshots `evidence/before.png` and `evidence/after.png`
+1. Serve the broken and fixed demos locally
+- cd demo
+- npx http-server . -p 8000
+- # Broken: http://localhost:8000/broken/
+- # Fixed:  http://localhost:8000/fixed/
+2. Inspect font requests with Lighthouse
+- npx lighthouse "http://localhost:8000/broken/" \
+- --output=json --output-path=evidence/lhr-broken.json --save-assets
+- npx lighthouse "http://localhost:8000/fixed/" \
+- --output=json --output-path=evidence/lhr-fixed.json --save-assets
+3. Extract font resource rows
+- node tools/font-report.js "http://localhost:8000/broken/" > evidence/fonts-broken.json
+- node tools/font-report.js "http://localhost:8000/fixed/"  > evidence/fonts-fixed.json
+4. Inspect CSS manually to check @font-face blocks for font-display and formats.
+5. Take screenshots of broken and fixed pages:
+- evidence/before.png
+- evidence/after.png
 ## 8) Evidence required (list filenames)
 - e.g. `evidence/lhr-broken.json`, `evidence/images-broken.csv`, `evidence/before.png`,
 ## 9) Automation hints (optional)
