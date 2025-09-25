@@ -88,13 +88,20 @@ Example structure:
 ## 8) Evidence required (list filenames)
 - lhr-broken-1.json
 - lhr-fixed-1.json
+- fonts-broken.csv
+- fonts-fixed.csv
+- broken.jpg
+- fixed.jpg
+- lhr-broken-2.json
+- lhr-broken-3.json
+- lhr-fixed-2.json
+- lhr-fixed-3.json
 - lhr-broken-1-0.trace.json
 - lhr-fixed-1-0.trace.json
 - lhr-broken-1-0.devtoolslog.json
 - lhr-fixed-1-0.devtoolslog.json
-- before.png
-- after.png
 - summary.md
+
 ## 9) Automation hints (optional)   
 - Use Puppeteer/Node to grab all font resources
 - Output transferSize, format, and whether preload headers are present
