@@ -1,0 +1,8 @@
+url,declaredFamily,format,fontDisplay,preloaded,transferSize,encodedBodySize,resourceType,notes
+http://127.0.0.1:8000/fonts/broken/ShadowsIntoLight-Regular.ttf,ShadowsIntoLight_Regular,ttf,,false,48774,0,Font,
+http://127.0.0.1:8000/fonts/broken/AmaticSC-Bold.ttf,AmaticSC_Bold,ttf,,false,147105,0,Font,
+http://127.0.0.1:8000/fonts/broken/AmaticSC-Regular.ttf,AmaticSC_Regular,ttf,,false,143005,0,Font,
+http://127.0.0.1:8000/fonts/broken/Asimovian-Regular.ttf,Asimovian_Regular,ttf,,false,66111,0,Font,
+http://127.0.0.1:8000/fonts/broken/IndieFlower-Regular.ttf,IndieFlower_Regular,ttf,,false,55723,0,Font,
+http://127.0.0.1:8000/fonts/broken/Play-Regular.ttf,Play_Regular,ttf,,false,184236,0,Font,
+http://127.0.0.1:8000/fonts/broken/Play-Bold.ttf,Play_Bold,ttf,,false,195156,0,Font,

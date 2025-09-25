@@ -1,0 +1,3 @@
+url,declaredFamily,format,fontDisplay,preloaded,transferSize,encodedBodySize,resourceType,notes
+http://127.0.0.1:8000/fonts/fixed/Lato-Bold.woff2,Lato,woff2,swap,true,28112,0,Font,
+http://127.0.0.1:8000/fonts/fixed/Karla-Medium.woff2,Karla,woff2,swap,true,20425,0,Font,
