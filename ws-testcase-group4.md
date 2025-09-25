@@ -43,28 +43,48 @@ https://nodejs.org/en/download (download latest version)
 
 **2. Run Lighthouse three times for the broken demo and three times for fixed demo with these commands**
 - Broken:
-  npx lighthouse "http://127.0.0.1:8000/demo/broken/index.html" \
+  `npx lighthouse "http://127.0.0.1:8000/demo/broken/index.html" \
     --output=json \
     --output-path="evidence/lhr-broken-1.json" \
     --save-assets \
-    --chrome-flags="--headless"
+    --chrome-flags="--headless"`
 
 - Fixed: 
-    npx lighthouse "http://127.0.0.1:8000/demo/fixed/index.html" \
+    `npx lighthouse "http://127.0.0.1:8000/demo/fixed/index.html" \
     --output=json \
     --output-path="evidence/lhr-fixed-1.json" \
     --save-assets \
-    --chrome-flags="--headless"
+    --chrome-flags="--headless"`
 
 **3. Extract font rows using helper script**
-Run the script to generate CSV files from Lighthouse output:
-node ./tools/extract-fonts.js evidence/lhr-broken-1.json > evidence/fonts-broken.csv
-node ./tools/extract-fonts.js evidence/lhr-fixed-1.json > evidence/fonts-fixed.csv
+- Run the scripts to generate CSV files from Lighthouse output:
+`node ./tools/extract-fonts.js evidence/lhr-broken-1.json > evidence/fonts-broken.csv`
+and
+`node ./tools/extract-fonts.js evidence/lhr-fixed-1.json > evidence/fonts-fixed.csv`
+- The generated files `fonts-broken.csv` and `fonts-fixed.csv` will appear in the evidence folder.
+
 **4. Inspect CSS manually**
 - Check `@font-face` blocks for `font-display` and `format`.
-**5. Take screenshots of broken and fixed pages:**
-- evidence/before.png
-- evidence/after.png
+
+**5. Extract screenshots of broken and fixed pages from tests:**
+- Open a new terminal.
+- In the root directory, type in `py tools/extract-screenshot.py`.
+- Screenshots `broken.jpg` and `fixed.jpg` will appear in the evidence folder.
+
+**6. Write performance summary**
+
+- Compare `fonts-broken.csv` vs `fonts-fixed.csv`.
+- Calculate:
+    - Total transferSize for broken vs fixed
+    - Absolute savings in bytes
+    - % savings
+    - Estimated CO₂ difference (using transfer bytes × emissions factor)
+- Write findings into evidence/summary.md.
+Example structure:
+    - Table of broken vs fixed totals
+    - % savings
+    - CO₂ difference for at least 2 viewport resolutions (e.g., mobile 375×812 and desktop 1920×1080).
+
 ## 8) Evidence required (list filenames)
 - lhr-broken-1.json
 - lhr-fixed-1.json
