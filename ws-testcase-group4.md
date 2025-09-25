@@ -54,7 +54,15 @@ node ./tools/extract-fonts.js evidence/audit-broken.json > evidence/fonts-broken
 - evidence/before.png
 - evidence/after.png
 ## 8) Evidence required (list filenames)
-- e.g. `evidence/lhr-broken.json`, `evidence/images-broken.csv`, `evidence/before.png`,
+- lhr-broken-1.json
+- lhr-fixed-1.json
+- lhr-broken-1-0.trace.json
+- lhr-fixed-1-0.trace.json
+- lhr-broken-1-0.devtoolslog.json
+- lhr-fixed-1-0.devtoolslog.json
+- before.png
+- after.png
+- summary.md
 ## 9) Automation hints (optional)   
 - Use Puppeteer/Node to grab all font resources
 - Output transferSize, format, and whether preload headers are present

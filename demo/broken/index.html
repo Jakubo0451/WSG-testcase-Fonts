@@ -1,139 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Broken demo</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Broken WSG 2.18 Font Optimization</h1>
     <section>
-        <h2 class="hf-1">Environment</h2>
-        <p class="pf-1">
-            Minimizing both the quantity and complexity of custom fonts implemented on a website significantly decreases the amount of data that needs to be transferred to the user's device and reduces the computational effort required for rendering, which in turn contributes to lower energy consumption and helps reduce the associated carbon emissions during page loads.
-        </p>
+      <h2 class="hf-1">Environment</h2>
+      <p class="pf-1">
+        Minimizing both the quantity and complexity of custom fonts implemented
+        on a website significantly decreases the amount of data that needs to be
+        transferred to the user's device and reduces the computational effort
+        required for rendering, which in turn contributes to lower energy
+        consumption and helps reduce the associated carbon emissions during page
+        loads.
+      </p>
     </section>
     <section>
-        <h2 class="hf-2">Performance</h2>
-        <p class="pf-2">
-            Choosing to use well-optimized web fonts or default system fonts plays a key role in enhancing overall website performance by enabling faster text rendering and contributing to a more seamless and responsive user experience, especially on devices with limited processing power or slower internet connections.
-        </p>
+      <h2 class="hf-2">Performance</h2>
+      <p class="pf-2">
+        Choosing to use well-optimized web fonts or default system fonts plays a
+        key role in enhancing overall website performance by enabling faster
+        text rendering and contributing to a more seamless and responsive user
+        experience, especially on devices with limited processing power or
+        slower internet connections.
+      </p>
     </section>
     <section>
-        <h2 class="hf-3">Social equity</h2>
-        <p class="pf-3">
-            System fonts, which come preinstalled on most operating systems and devices, are a highly reliable choice for web design because they eliminate the need for additional downloads and ensure that content is displayed quickly and consistently in a typeface that users are already accustomed to, improving both performance and readability.
-        </p>
+      <h2 class="hf-3">Social equity</h2>
+      <p class="pf-3">
+        System fonts, which come preinstalled on most operating systems and
+        devices, are a highly reliable choice for web design because they
+        eliminate the need for additional downloads and ensure that content is
+        displayed quickly and consistently in a typeface that users are already
+        accustomed to, improving both performance and readability.
+      </p>
     </section>
     <style>
-        @font-face {
-            font-family: AmaticSC_Bold;
-            src: url(/fonts/broken/AmaticSC-Bold.ttf);
-        }
+@font-face {
+  font-family: AmaticSC_Bold;
+  src: url(/fonts/broken/AmaticSC-Bold.ttf);
+}
+@font-face {
+  font-family: AmaticSC_Regular;
+  src: url(/fonts/broken/AmaticSC-Regular.ttf);
+}
+@font-face {
+  font-family: Asimovian_Regular;
+  src: url(/fonts/broken/Asimovian-Regular.ttf);
+}
+@font-face {
+  font-family: IndieFlower_Regular;
+  src: url(/fonts/broken/IndieFlower-Regular.ttf);
+}
+@font-face {
+  font-family: Play_Regular;
+  src: url(/fonts/broken/Play-Regular.ttf);
+}
+@font-face {
+  font-family: Play_Bold;
+  src: url(/fonts/broken/Play-Bold.ttf);
+}
+@font-face {
+  font-family: ShadowsIntoLight_Regular;
+  src: url(/fonts/broken/ShadowsIntoLight-Regular.ttf);
+}
+@font-face {
+  font-family: skud;
+  src: url(/fonts/broken/skud-webfont.svg) format("svg");
+}
+@font-face {
+  font-family: statik;
+  src: url(/fonts/broken/wg_statik.eot) format("eot");
+}
 
-        @font-face {
-            font-family: AmaticSC_Regular;
-            src: url(/fonts/broken/AmaticSC-Regular.ttf);
-        }
+:root {
+  font-size: clamp(14px, 1.2vw + 10px, 18px);
+}
 
-        @font-face {
-            font-family: Asimovian_Regular;
-            src: url(/fonts/broken/Asimovian-Regular.ttf);
-        }
+body {
+  margin: 0;
+  text-align: center;
+  color: #111;
+  background: #ffffff;
+  line-height: 1.5;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 
-        @font-face {
-            font-family: IndieFlower_Regular;
-            src: url(/fonts/broken/IndieFlower-Regular.ttf);
-        }
+main {
+  padding: 2rem 1rem;
+}
 
-        @font-face {
-            font-family: Play_Regular;
-            src: url(/fonts/broken/Play-Regular.ttf);
-        }
+h1, h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: clamp(1.6rem, 2.4vw, 2.4rem);
+}
 
-        @font-face {
-            font-family: Play_Bold;
-            src: url(/fonts/broken/Play-Bold.ttf);
-        }
+section h2 {
+  font-size: clamp(1.125rem, 1.4vw, 1.6rem);
+}
 
-        @font-face {
-            font-family: ShadowsIntoLight_Regular;
-            src: url(/fonts/broken/ShadowsIntoLight-Regular.ttf);
-        }
+p {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-        @font-face {
-            font-family: skud;
-            src: url(/fonts/broken/skud-webfont.svg) format("svg");
-        }
+section {
+  padding: 2rem;
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  width: min(65vw, 900px);
+}
 
-        @font-face {
-            font-family: statik;
-            src: url(/fonts/broken/wg_statik.eot) format("eot");
-        }
+section:nth-of-type(1) {
+  background-color: salmon;
+  color: red;
+}
+section:nth-of-type(2) {
+  background-color: lightblue;
+  color: aqua;
+}
+section:nth-of-type(3) {
+  background-color: lightgreen;
+  color: lime;
+}
 
-        .hf-1 {
-            font-family: AmaticSC_Bold;
-        }
+.hf-1 {
+  font-family: AmaticSC_Bold;
+}
+.pf-1 {
+  font-family: AmaticSC_Regular;
+}
+.hf-2 {
+  font-family: Asimovian_Regular;
+}
+.pf-2 {
+  font-family: IndieFlower_Regular;
+}
+.hf-3 {
+  font-family: Play_Regular;
+}
+.pf-3 {
+  font-family: Play_Bold;
+}
 
-        .pf-1 {
-            font-family: AmaticSC_Regular;
-        }
+h1 {
+  font-family: ShadowsIntoLight_Regular;
+  color: gainsboro;
+}
 
-        .hf-2 {
-            font-family: Asimovian_Regular;
-        }
-
-        .pf-2 {
-            font-family: IndieFlower_Regular;
-        }
-
-        .hf-3 {
-            font-family: Play_Regular;
-        }
-
-        .pf-3 {
-            font-family: Play_Bold;
-        }
-
-        h1 {
-            font-family: ShadowsIntoLight_Regular;
-            color: gainsboro;
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-        p {
-            margin-bottom: 0;
-        }
-
-        body {
-            text-align: center;
-            margin: 0;
-        }
-
-        section {
-            padding: 2rem;
-            width: 65vw;
-            margin: 1rem auto;
-            border-radius: .5rem;
-        }
-
-        section:nth-child(2) {
-            background-color: salmon;
-            color: red;
-        }
-
-        section:nth-child(3) {
-            background-color: lightblue;
-            color: aqua;
-        }
-
-        section:nth-child(4) {
-            background-color: lightgreen;
-            color: lime;
-        }
+body {
+  text-align: center;
+  margin: 0;
+}
     </style>
-</body>
+  </body>
 </html>
