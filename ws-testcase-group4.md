@@ -31,25 +31,37 @@ Assess whether line-height, contrast, and fallbacks provide good readability.
 PASS if ≤ 5 custom fonts are used, all served in WOFF2 (with optional WOFF fallback), and critical fonts are preloaded with `font-display` set.
 FAIL if > 5 custom fonts are used, or fonts are only in legacy formats, or no preload/font-display is set in the previously mentioned formats.
 ## 7) Exact test steps (reproducible)
+**0. Install python and node on your machine**
+https://www.python.org/downloads/ (downaload latest version)
+https://nodejs.org/en/download (download latest version)
 **1. Serve the broken and fixed demos locally**
+- Open terminal
 - `cd demo`
 - `npx http-server . -p 8000`
 - Broken: http://127.0.0.1:8000/demo/broken/index.html
 - Fixed:  http://127.0.0.1:8000/demo/fixed/index.html
 
-**2. Inspect font requests with Lighthouse**
-- For broken: `npx lighthouse "http://127.0.0.1:8000/demo/broken/index.html" --output=json --output-path="evidence/lhr-broken-1.json" --save-assets --chrome-flags="--headless"`
-- For fixed: `npx lighthouse "http://127.0.0.1:8000/demo/fixed/index.html" --output=json --output-path="evidence/lhr-fixed-1.json" --save-assets --chrome-flags="--headless"`
+**2. Run Lighthouse three times for the broken demo and three times for fixed demo with these commands**
+- Broken:
+  npx lighthouse "http://127.0.0.1:8000/demo/broken/index.html" \
+    --output=json \
+    --output-path="evidence/lhr-broken-1.json" \
+    --save-assets \
+    --chrome-flags="--headless"
+
+- Fixed: 
+    npx lighthouse "http://127.0.0.1:8000/demo/fixed/index.html" \
+    --output=json \
+    --output-path="evidence/lhr-fixed-1.json" \
+    --save-assets \
+    --chrome-flags="--headless"
 
 **3. Extract font rows using helper script**
-> [!WARNING]
-The script tools/extract-fonts.js in the example below is illustrative. Treat it as present for the test procedure: the script would parse the Lighthouse JSON and produce a CSV listing every font resource, declared @font-face info, font-display presence, whether the font was preloaded, whether it’s used above-the-fold, and the transferSize bytes from Lighthouse. The test expects the CSV output files listed in the Evidence section.
-Example command (produce CSV):
-node ./tools/extract-fonts.js evidence/audit-broken.json > evidence/fonts-broken.csv
-
+Run the script to generate CSV files from Lighthouse output:
+node ./tools/extract-fonts.js evidence/lhr-broken-1.json > evidence/fonts-broken.csv
+node ./tools/extract-fonts.js evidence/lhr-fixed-1.json > evidence/fonts-fixed.csv
 **4. Inspect CSS manually**
 - Check `@font-face` blocks for `font-display` and `format`.
-
 **5. Take screenshots of broken and fixed pages:**
 - evidence/before.png
 - evidence/after.png
